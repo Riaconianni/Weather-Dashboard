@@ -1,0 +1,13 @@
+header {
+  font-family: 'Merriweather', serif;
+}
+
+main {
+font-family: 'Fira Mono', monospace;
+}
+
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
