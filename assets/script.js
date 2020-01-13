@@ -12,7 +12,7 @@ function handleFormSubmit(event) {
     return false;
   }
 
-  var queryUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=58044ceb57e67f25a86502f8ce4be039`;
+  var queryUrl = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=58044ceb57e67f25a86502f8ce4be039&units=imperial`;
 
   // make our search with AJAX
   $.ajax({
@@ -29,6 +29,7 @@ function handleFormSubmit(event) {
     $(".temp").text("Temperature (F) " + response.main.temp);
     $(".wind").text("Wind Speed: " + response.wind.speed);
   });
+  
 }
 
 $searchForm.on("submit", handleFormSubmit);
