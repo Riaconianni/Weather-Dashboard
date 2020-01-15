@@ -5,6 +5,13 @@ var $cityResults = $("#city-results");
 
 var cities = [];
 
+function printArr(weatherArr) {
+  for (var i = 0; i < weatherArr.length; i++) {
+    console.log(weatherArr);
+  }
+
+}
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -35,12 +42,7 @@ function handleFormSubmit(event) {
       
     });
 
-    function printArr(weatherArr) {
-      for (var i = 0; i < weatherArr.length; i++) {
-        console.log(weatherArr);
-      }
-      printArr(weatherArr);
-    }
+    printArr(fiveDayArr);
   });
 }
     
