@@ -2,6 +2,8 @@ var $searchForm = $("#search-form");
 var $searchInput = $("#search-input");
 var $searchedCities = $("#searched-cities");
 
+var cities = [];
+
 function handleFormSubmit(event) {
   event.preventDefault();
 
@@ -13,7 +15,7 @@ function handleFormSubmit(event) {
     return false;
   }
 
-  var queryURL = `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=58044ceb57e67f25a86502f8ce4be039&units=imperial`;
+  var queryURL = `https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&mode=xml&appid=58044ceb57e67f25a86502f8ce4be039&units=imperial`;
 
   // make our search with AJAX
   $.ajax({
@@ -22,31 +24,17 @@ function handleFormSubmit(event) {
   }).then(function(response) {
     console.log(response);
 
-    $(".city").html("<h1>" + response.name + "</h1>");
-    $(".description").text(
-      "Weather: " + response.weather[0].description
-    );
-    $(".humidity").text("Humidity: " + response.main.humidity);
-    $(".temp").text("Temperature (F): " + response.main.temp);
-    $(".wind").text("Wind Speed: " + response.wind.speed);
+    $(".city").html("<h1>" + response.weatherdata.location + "</h1>");
+    // $(".description").text(
+    //   "Weather: " + response.weather[0].description
+    // );
+    // $(".humidity").text("Humidity: " + response.main.humidity);
+    // $(".temp").text("Temperature (F): " + response.main.temp);
+    // $(".wind").text("Wind Speed: " + response.wind.speed);
   });
-  
+
+
 }
 
-function handleCitySearchedSubmit(event) {
-  event.preventDefault();
-
-  var cities = $searchInput.val();
-
-  localStorage.setItem(cities, "cities");
-
-  localStorage.getItem(cities);
-
-  $searchedCities.append(cities);
-
-  console.log(cities);
-
-};
 
 $searchForm.on("submit", handleFormSubmit);
-$searchedCities.on("submit", handleCitySearchedSubmit);
