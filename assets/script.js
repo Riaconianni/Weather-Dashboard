@@ -14,6 +14,7 @@ function printArr(weatherArr, cityName) {
 
     var $cardBody = $('<div>').addClass('card-body');
     $cardBody
+      .append(`<p>Date: ${weatherArr[i].dt_txt}</p>`)
       .append(`<p>Temperature (F): ${weatherArr[i].main.temp}</p>`)
       .append(`<p>Weather: ${weatherArr[i].weather[0].main}</p>`)
       .append(`<p>Wind: ${weatherArr[i].wind.speed}</p>`);
