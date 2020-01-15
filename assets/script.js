@@ -10,7 +10,8 @@ function printArr(weatherArr, cityName) {
     console.log(cityName);
     console.log(weatherArr);
   }
-
+$(".city").html("<h1>" + cityName + "</h1>");
+$(".temp").text("Temperature (F): " + weatherArr[i].main.temp);
 }
 
 function handleFormSubmit(event) {
@@ -46,11 +47,11 @@ function handleFormSubmit(event) {
     printArr(fiveDayArr, response.city.name);
   });
 }
-// $(".city").html("<h1>" + weatherArr[0] + "</h1>");
+
     // $(".description").text(
     //   "Weather: " + response.weather[0].description
     // );
     // $(".humidity").text("Humidity: " + response.main.humidity);
-    // $(".temp").text("Temperature (F): " + response.main.temp);
+
     // $(".wind").text("Wind Speed: " + response.wind.speed);
 $searchForm.on("submit", handleFormSubmit);
