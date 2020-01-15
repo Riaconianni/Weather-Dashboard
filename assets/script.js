@@ -33,12 +33,13 @@ function handleFormSubmit(event) {
         return false;
       };
       
-    })
-    function printArr(fiveDayArr) {
-      for (var i = 0; i < fiveDayArr.length; i++) {
-        console.log(fiveDayArr);
-      }
+    });
 
+    function printArr(weatherArr) {
+      for (var i = 0; i < weatherArr.length; i++) {
+        console.log(weatherArr);
+      }
+      printArr(weatherArr);
     }
   });
 }
