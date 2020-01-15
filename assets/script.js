@@ -9,9 +9,20 @@ function printArr(weatherArr, cityName) {
   for (var i = 0; i < weatherArr.length; i++) {
     console.log(cityName);
     console.log(weatherArr);
+
+    var $card = $('<div>').addClass('card bg-light text-dark mb-3');
+
+    var $cardBody = $('<div>').addClass('card-body');
+    $cardBody
+      .append(`<p>Temperature (F): ${weatherArr[i].main.temp}</p>`)
+      .append(`<p>Weather: ${weatherArr[i].weather[0].main}</p>`)
+      .append(`<p>Wind: ${weatherArr[i].wind.speed}</p>`);
+
+      $card.append($cardBody);
+
+      $cityResults.append($card);
   }
 $(".city").html("<h1>" + cityName + "</h1>");
-$(".temp").text("Temperature (F): " + weatherArr[i].main.temp);
 }
 
 function handleFormSubmit(event) {
