@@ -23,7 +23,6 @@ function printArr(weatherArr, cityName) {
 
       $cityResults.append($card);
   }
-$(".city").html("<h1>" + cityName + "</h1>");
 }
 
 function handleFormSubmit(event) {
@@ -53,6 +52,8 @@ function handleFormSubmit(event) {
     $(".humidity").text("Humidity: " + response.main.humidity);
     $(".temp").text("Temperature (F): " + response.main.temp);
     $(".wind").text("Wind Speed: " + response.wind.speed);
+
+    printArr()
   });
   
 
@@ -75,7 +76,7 @@ function handleFormSubmit(event) {
       
     });
 
-    printArr(fiveDayArr, response.city.name);
+    printArr(fiveDayArr);
   });
 }
 
