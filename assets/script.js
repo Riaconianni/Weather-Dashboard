@@ -2,6 +2,9 @@ var $searchForm = $("#search-form");
 var $searchInput = $("#search-input");
 var $searchedCities = $("#searched-cities");
 var $cityResults = $("#city-results");
+var currentDay = $(".currentDay");
+
+var today = (moment().format('MMMM Do YYYY'));
 
 var cities = [];
 
@@ -46,6 +49,7 @@ function handleFormSubmit(event) {
     console.log(response);
 
     $(".city").html("<h1>" + response.name + "</h1>");
+    $(".currentDay").text(today);
     $(".description").text(
       "Weather: " + response.weather[0].description
     );
@@ -79,11 +83,5 @@ function handleFormSubmit(event) {
     printArr(fiveDayArr);
   });
 }
-
-    // $(".description").text(
-    //   "Weather: " + response.weather[0].description
-    // );
-    // $(".humidity").text("Humidity: " + response.main.humidity);
-
-    // $(".wind").text("Wind Speed: " + response.wind.speed);
+;
 $searchForm.on("submit", handleFormSubmit);
