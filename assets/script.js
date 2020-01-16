@@ -6,7 +6,7 @@ var currentDay = $(".currentDay");
 
 var today = (moment().format('MMMM Do YYYY'));
 
-function printArr(weatherArr, cityName) {
+function printArr(weatherArr) {
   for (var i = 0; i < weatherArr.length; i++) {
     console.log(cityName);
     console.log(weatherArr);
