@@ -6,8 +6,6 @@ var currentDay = $(".currentDay");
 
 var today = (moment().format('MMMM Do YYYY'));
 
-var cities = [];
-
 function printArr(weatherArr, cityName) {
   for (var i = 0; i < weatherArr.length; i++) {
     console.log(cityName);
@@ -56,8 +54,6 @@ function handleFormSubmit(event) {
     $(".humidity").text("Humidity: " + response.main.humidity);
     $(".temp").text("Temperature (F): " + response.main.temp);
     $(".wind").text("Wind Speed: " + response.wind.speed);
-
-    printArr()
   });
   
 
