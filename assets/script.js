@@ -10,11 +10,13 @@ function printArr(weatherArr) {
   for (var i = 0; i < weatherArr.length; i++) {
     console.log(weatherArr);
 
+    var futureDay = moment(new Date()).add(i + 1, 'days').format('MMMM Do YYYY');
+
     var $card = $('<div>').addClass('card bg-light text-dark mb-3');
 
     var $cardBody = $('<div>').addClass('card-body');
     $cardBody
-      .append(`<p>Date: ${weatherArr[i].dt_txt}</p>`)
+      .append(`<p>Date: ${futureDay}</p>`)
       .append(`<p>Temperature (F): ${weatherArr[i].main.temp}</p>`)
       .append(`<p>Weather: ${weatherArr[i].weather[0].main}</p>`)
       .append(`<p>Wind: ${weatherArr[i].wind.speed}</p>`);
