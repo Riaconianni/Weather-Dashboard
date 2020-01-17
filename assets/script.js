@@ -8,7 +8,6 @@ var today = (moment().format('MMMM Do YYYY'));
 
 function printArr(weatherArr) {
   for (var i = 0; i < weatherArr.length; i++) {
-    console.log(cityName);
     console.log(weatherArr);
 
     var $card = $('<div>').addClass('card bg-light text-dark mb-3');
